@@ -26,7 +26,7 @@ endmacro()
 # dirent
 Directories("${CMAKE_CURRENT_SOURCE_DIR}/dirent" dirent_INCLUDE_DIRS)
 
-# Eigen 3.2.7 version is required for pybind11 included in Open3D
+# Eigen 3.2.7 version is required for pybind11 included in Chaos3D
 if (BUILD_EIGEN3)
     message(STATUS "Building EIGEN3 from source (BUILD_EIGEN3=ON)")
 elseif (EIGEN3_FOUND)
@@ -120,7 +120,7 @@ if ((APPLE) AND ("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU"))
     # The jsoncpp installed by brew by default is compiled with libc++
     # If the two libraries are linked together, they break the build
     # https://github.com/open-source-parsers/jsoncpp/issues/597
-    # https://github.com/IntelVCL/Open3D/issues/9
+    # https://github.com/IntelVCL/Chaos3D/issues/9
     message(STATUS "Building JSONCPP from source, without installing headers")
     add_subdirectory(jsoncpp)
     set(BUILD_JSONCPP ON)
@@ -197,6 +197,11 @@ endif ()
 # rply
 Directories("${CMAKE_CURRENT_SOURCE_DIR}/rply"   rply_INCLUDE_DIRS)
 
+if (BUILD_TBB)
+    Directories("${CMAKE_CURRENT_SOURCE_DIR}/tbb"   tbb_INCLUDE_DIRS)
+endif() 
+
+
 # set 3RDPARTY_INCLUDE_DIRS
 list(APPEND 3RDPARTY_INCLUDE_DIRS
      # ${dirent_INCLUDE_DIRS} # fails on Linux, seems to require Windows headers
@@ -210,11 +215,11 @@ list(APPEND 3RDPARTY_INCLUDE_DIRS
      ${liblzf_INCLUDE_DIRS}
      ${librealsense_INCLUDE_DIRS}
      ${PNG_INCLUDE_DIRS}
-     ${rply_INCLUDE_DIRS}
+     ${rply_INCLUDE_DIRS} 
      ${tinyfiledialogs_INCLUDE_DIRS})
 
 # set 3RDPARTY_INCLUDE_DIRS_AT_INSTALL
-# Open3D's header only dependes on Eigen and GL headers
+# Chaos3D's header only dependes on Eigen and GL headers
 # The future plan is to minimize such dependencies
 list(APPEND 3RDPARTY_INCLUDE_DIRS_AT_INSTALL
      ${EIGEN3_INCLUDE_DIRS}
@@ -239,9 +244,9 @@ list(APPEND 3RDPARTY_LIBRARIES
      ${PNG_LIBRARIES}
      ${tinyfiledialogs_LIBRARIES})
 
-# set PRE_BUILT_3RDPARTY_LIBRARIES. When building Open3D as shared library,
-# the user app that links Open3D also need to link PRE_BUILT_3RDPARTY_LIBRARIES,
-# all other 3rd party libraries are embedded in the Open3D, so the user app
+# set PRE_BUILT_3RDPARTY_LIBRARIES. When building Chaos3D as shared library,
+# the user app that links Chaos3D also need to link PRE_BUILT_3RDPARTY_LIBRARIES,
+# all other 3rd party libraries are embedded in the Chaos3D, so the user app
 # shall not link them
 if (NOT BUILD_GLEW)
     list(APPEND PRE_BUILT_3RDPARTY_LIBRARIES ${GLEW_LIBRARIES})
