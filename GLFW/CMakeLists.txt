@@ -372,7 +372,11 @@ endif()
 
 #--------------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 # MODIFICATION BY Chaos3D: overwrite some GLFW cmake variables
+=======
+# MODIFICATION BY chaos3d: overwrite some GLFW cmake variables
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 =======
 # MODIFICATION BY chaos3d: overwrite some GLFW cmake variables
 >>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
@@ -390,7 +394,11 @@ set(GLFW_LIBRARIES ${GLFW_LIBRARIES} PARENT_SCOPE)
 # The library is installed by src/CMakeLists.txt
 #--------------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 # MODIFICATION BY Chaos3D: disable GLFW header install
+=======
+# MODIFICATION BY chaos3d: disable GLFW header install
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 =======
 # MODIFICATION BY chaos3d: disable GLFW header install
 >>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
@@ -410,7 +418,11 @@ set(GLFW_LIBRARIES ${GLFW_LIBRARIES} PARENT_SCOPE)
 #             DESTINATION "lib${LIB_SUFFIX}/pkgconfig")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #     Chaos3D NOTE: need to keep this off in order for the Chaos3D make uninstall to work
+=======
+#     chaos3d NOTE: need to keep this off in order for the chaos3d make uninstall to work
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 =======
 #     chaos3d NOTE: need to keep this off in order for the chaos3d make uninstall to work
 >>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04

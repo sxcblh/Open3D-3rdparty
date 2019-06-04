@@ -121,7 +121,11 @@ if ((APPLE) AND ("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU"))
     # If the two libraries are linked together, they break the build
     # https://github.com/open-source-parsers/jsoncpp/issues/597
 <<<<<<< HEAD
+<<<<<<< HEAD
     # https://github.com/IntelVCL/Chaos3D/issues/9
+=======
+    # https://github.com/sxcblh/Chaos3D/issues/9
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 =======
     # https://github.com/sxcblh/Chaos3D/issues/9
 >>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
@@ -234,8 +238,14 @@ list(APPEND 3RDPARTY_INCLUDE_DIRS
      ${librealsense_INCLUDE_DIRS}
      ${PNG_INCLUDE_DIRS}
 <<<<<<< HEAD
+<<<<<<< HEAD
      ${rply_INCLUDE_DIRS} 
      ${tinyfiledialogs_INCLUDE_DIRS})
+=======
+     ${rply_INCLUDE_DIRS}
+     ${tinyfiledialogs_INCLUDE_DIRS}
+     ${qhull_INCLUDE_DIRS})
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 =======
      ${rply_INCLUDE_DIRS}
      ${tinyfiledialogs_INCLUDE_DIRS}

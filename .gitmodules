@@ -3,4 +3,8 @@
 	url = https://github.com/pybind/pybind11.git
 [submodule "qhull"]
 	path = qhull
+<<<<<<< HEAD
 	url = https://github.com/sxcblh/qhull.git 
+=======
+	url = https://github.com/sxcblh/qhull.git
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
