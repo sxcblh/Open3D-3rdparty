@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 This folder contains a set of external libraries that are used in Chaos3D.
 
 We want to make Chaos3D self-contained and cross-platformly consistent. So
 Chaos3DV does not detect system installed libraries and always link to these
+=======
+This folder contains a set of external libraries that are used in chaos3d.
+
+We want to make chaos3d self-contained and cross-platformly consistent. So
+chaos3dV does not detect system installed libraries and always link to these
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 external libraries.
 
 Some external libraries rely on basic system level libraries such as OpenGL and
@@ -60,6 +67,10 @@ https://github.com/IntelRealSense/librealsense
 tinyfiledialogs             2.7.2                                   zlib license
 A lightweight cross-platform file dialog library
 https://sourceforge.net/projects/tinyfiledialogs/
+--------------------------------------------------------------------------------
+qhull                       2015.2                                      BSD like
+Convex hull, Delauny triangulation, Voronoi diagram, halfspace intersection.
+http://www.qhull.org/
 --------------------------------------------------------------------------------
 pybind11                    2.2                                      BSD license
 Python binding for C++11

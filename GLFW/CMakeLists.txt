@@ -371,7 +371,11 @@ if (DOXYGEN_FOUND AND GLFW_BUILD_DOCS)
 endif()
 
 #--------------------------------------------------------------------
+<<<<<<< HEAD
 # MODIFICATION BY Chaos3D: overwrite some GLFW cmake variables
+=======
+# MODIFICATION BY chaos3d: overwrite some GLFW cmake variables
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 #--------------------------------------------------------------------
 set(GLFW_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/include")
 # glfw_LIBRARIES is collected by the official GLFW cmake
@@ -385,7 +389,11 @@ set(GLFW_LIBRARIES ${GLFW_LIBRARIES} PARENT_SCOPE)
 # Install files other than the library
 # The library is installed by src/CMakeLists.txt
 #--------------------------------------------------------------------
+<<<<<<< HEAD
 # MODIFICATION BY Chaos3D: disable GLFW header install
+=======
+# MODIFICATION BY chaos3d: disable GLFW header install
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 #--------------------------------------------------------------------
 # if (GLFW_INSTALL)
 #     install(DIRECTORY include/GLFW DESTINATION include
@@ -401,7 +409,11 @@ set(GLFW_LIBRARIES ${GLFW_LIBRARIES} PARENT_SCOPE)
 #     install(FILES "${GLFW_BINARY_DIR}/src/glfw3.pc"
 #             DESTINATION "lib${LIB_SUFFIX}/pkgconfig")
 
+<<<<<<< HEAD
 #     Chaos3D NOTE: need to keep this off in order for the Chaos3D make uninstall to work
+=======
+#     chaos3d NOTE: need to keep this off in order for the chaos3d make uninstall to work
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 #     Only generate this target if no higher-level project already has
 #     if (NOT TARGET uninstall)
 #         configure_file(cmake_uninstall.cmake.in

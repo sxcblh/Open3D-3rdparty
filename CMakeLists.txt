@@ -120,7 +120,11 @@ if ((APPLE) AND ("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU"))
     # The jsoncpp installed by brew by default is compiled with libc++
     # If the two libraries are linked together, they break the build
     # https://github.com/open-source-parsers/jsoncpp/issues/597
+<<<<<<< HEAD
     # https://github.com/IntelVCL/Chaos3D/issues/9
+=======
+    # https://github.com/sxcblh/Chaos3D/issues/9
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
     message(STATUS "Building JSONCPP from source, without installing headers")
     add_subdirectory(jsoncpp)
     set(BUILD_JSONCPP ON)
@@ -142,6 +146,9 @@ endif ()
 
 # liblzf
 Directories("${CMAKE_CURRENT_SOURCE_DIR}/liblzf" liblzf_INCLUDE_DIRS)
+
+# tritriintersect
+Directories("${CMAKE_CURRENT_SOURCE_DIR}/tritriintersect" liblzf_INCLUDE_DIRS)
 
 # PNG
 if (BUILD_PNG)
@@ -194,6 +201,17 @@ else ()
     message(SEND_ERROR "TINYFILEDIALOGS dependency not met.")
 endif ()
 
+# qhull
+if (BUILD_QHULL)
+    message(STATUS "Building QHULL from source")
+    include_directories("qhull/src")
+    add_subdirectory(qhull)
+    set(qhull_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/qhull/src")
+    set(qhull_LIBRARIES qhullcpp qhullstatic_r) 
+else ()
+    message(SEND_ERROR "qhull dependency not met.")
+endif ()
+
 # rply
 Directories("${CMAKE_CURRENT_SOURCE_DIR}/rply"   rply_INCLUDE_DIRS)
 
@@ -215,8 +233,14 @@ list(APPEND 3RDPARTY_INCLUDE_DIRS
      ${liblzf_INCLUDE_DIRS}
      ${librealsense_INCLUDE_DIRS}
      ${PNG_INCLUDE_DIRS}
+<<<<<<< HEAD
      ${rply_INCLUDE_DIRS} 
      ${tinyfiledialogs_INCLUDE_DIRS})
+=======
+     ${rply_INCLUDE_DIRS}
+     ${tinyfiledialogs_INCLUDE_DIRS}
+     ${qhull_INCLUDE_DIRS})
+>>>>>>> 2bb56014144dc8069ab73dcaffbe1fd53e60ff04
 
 # set 3RDPARTY_INCLUDE_DIRS_AT_INSTALL
 # Chaos3D's header only dependes on Eigen and GL headers
@@ -242,7 +266,8 @@ list(APPEND 3RDPARTY_LIBRARIES
      ${JPEG_LIBRARIES}
      ${JSONCPP_LIBRARIES}
      ${PNG_LIBRARIES}
-     ${tinyfiledialogs_LIBRARIES})
+     ${tinyfiledialogs_LIBRARIES}
+     ${qhull_LIBRARIES})
 
 # set PRE_BUILT_3RDPARTY_LIBRARIES. When building Chaos3D as shared library,
 # the user app that links Chaos3D also need to link PRE_BUILT_3RDPARTY_LIBRARIES,
@@ -265,6 +290,9 @@ if (NOT BUILD_PNG)
 endif ()
 if (NOT BUILD_TINYFILEDIALOGS)
     list(APPEND PRE_BUILT_3RDPARTY_LIBRARIES ${tinyfiledialogs_LIBRARIES})
+endif ()
+if (NOT BUILD_QHULL)
+    list(APPEND PRE_BUILT_3RDPARTY_LIBRARIES ${qhull_LIBRARIES})
 endif ()
 
 set(3RDPARTY_INCLUDE_DIRS ${3RDPARTY_INCLUDE_DIRS} PARENT_SCOPE)
